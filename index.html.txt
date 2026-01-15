@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html lang="ja">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>AR.js × A‑Frame（2D画像を重ねる）</title>
+ <!-- A-Frame：HTMLタグで3D/2Dを配置できるフレームワーク -->
+ <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+ <!-- AR.js（A-Frame用ビルド：マーカー & 位置情報対応） -->
+ <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+ <style>body{margin:0;overflow:hidden}</style>
+</head>
+<body>
+ <!-- ARシーン（embedded:ページ埋め込み / arjs:AR有効） -->
+ <a-scene embedded arjs>
+   <!-- マーカー（hiro）をトラッキングして、この中身を重ね表示 -->
+   <a-marker preset="hiro">
+     <!-- 2D画像（平面）を1枚置く。大きさや位置は適宜調整 -->
+     <a-image
+       src="https://aframe.io/examples/assets/images/grass.jpg"
+       position="0 0 0"
+       rotation="-90 0 0"
+       width="1" height="1">
+     </a-image>
+   </a-marker>
+   <!-- カメラ（AR.jsが自動的に制御） -->
+   <a-entity camera></a-entity>
+ </a-scene>
+</body>
+</html>
